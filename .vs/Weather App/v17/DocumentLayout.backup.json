@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\c#\\Weather App\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E8AF04B0-FEDC-45EC-880F-D7AEA1705616}|Weather App\\Weather App.csproj|c:\\c#\\weather app\\weather app\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8AF04B0-FEDC-45EC-880F-D7AEA1705616}|Weather App\\Weather App.csproj|solutionrelative:weather app\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8AF04B0-FEDC-45EC-880F-D7AEA1705616}|Weather App\\Weather App.csproj|c:\\c#\\weather app\\weather app\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E8AF04B0-FEDC-45EC-880F-D7AEA1705616}|Weather App\\Weather App.csproj|solutionrelative:weather app\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8AF04B0-FEDC-45EC-880F-D7AEA1705616}|Weather App\\Weather App.csproj|c:\\c#\\weather app\\weather app\\models\\favoritecity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8AF04B0-FEDC-45EC-880F-D7AEA1705616}|Weather App\\Weather App.csproj|solutionrelative:weather app\\models\\favoritecity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8AF04B0-FEDC-45EC-880F-D7AEA1705616}|Weather App\\Weather App.csproj|c:\\c#\\weather app\\weather app\\data\\weathercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8AF04B0-FEDC-45EC-880F-D7AEA1705616}|Weather App\\Weather App.csproj|solutionrelative:weather app\\data\\weathercontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WeatherContext.cs",
+              "DocumentMoniker": "C:\\c#\\Weather App\\Weather App\\Data\\WeatherContext.cs",
+              "RelativeDocumentMoniker": "Weather App\\Data\\WeatherContext.cs",
+              "ToolTip": "C:\\c#\\Weather App\\Weather App\\Data\\WeatherContext.cs",
+              "RelativeToolTip": "Weather App\\Data\\WeatherContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-24T19:49:03.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FavoriteCity.cs",
+              "DocumentMoniker": "C:\\c#\\Weather App\\Weather App\\Models\\FavoriteCity.cs",
+              "RelativeDocumentMoniker": "Weather App\\Models\\FavoriteCity.cs",
+              "ToolTip": "C:\\c#\\Weather App\\Weather App\\Models\\FavoriteCity.cs",
+              "RelativeToolTip": "Weather App\\Models\\FavoriteCity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-24T19:46:18.632Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\c#\\Weather App\\Weather App\\Pages\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "Weather App\\Pages\\Index.cshtml.cs",
+              "ToolTip": "C:\\c#\\Weather App\\Weather App\\Pages\\Index.cshtml.cs",
+              "RelativeToolTip": "Weather App\\Pages\\Index.cshtml.cs",
+              "ViewState": "AgIAADEAAAAAAAAAAAAkwDEAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-22T14:30:06.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\c#\\Weather App\\Weather App\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "Weather App\\Pages\\Index.cshtml",
+              "ToolTip": "C:\\c#\\Weather App\\Weather App\\Pages\\Index.cshtml",
+              "RelativeToolTip": "Weather App\\Pages\\Index.cshtml",
+              "ViewState": "AgIAAM8AAAAAAAAAAAAAANQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-02-22T14:03:21.616Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

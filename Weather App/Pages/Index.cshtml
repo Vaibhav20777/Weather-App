@@ -1,0 +1,233 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Weather App";
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .text-center {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+        color: #333;
+        margin-bottom: 30px;
+        font-size: 2.5em;
+    }
+
+    h3 {
+        color: #555;
+        margin-top: 30px;
+        border-bottom: 2px solid #667eea;
+        padding-bottom: 10px;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin: 15px 0;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        box-sizing: border-box;
+        transition: border-color 0.3s;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: #667eea;
+    }
+
+    button {
+        padding: 12px 25px;
+        margin: 10px 5px;
+        background: #667eea;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+
+    button:hover {
+        background: #764ba2;
+    }
+
+    button:active {
+        transform: scale(0.98);
+    }
+
+    #result {
+        background: #f0f4ff;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+        border-left: 4px solid #667eea;
+    }
+
+    #result h2 {
+        color: #333;
+        margin-top: 0;
+    }
+
+    #result p {
+        color: #666;
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    #favorites p {
+        background: #f9f9f9;
+        padding: 12px;
+        border-radius: 6px;
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-left: 3px solid #667eea;
+    }
+
+    #favorites button {
+        padding: 8px 15px;
+        font-size: 14px;
+        background: #dc3545;
+        margin: 0;
+    }
+
+    #favorites button:hover {
+        background: #c82333;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Weather App</h1>
+    <input type="text" placeholder="Enter City Name" id="cityInput">
+    <button onclick="SearchCity()">Search</button>
+    <button onclick ="SaveFavorites()">Save to Favorites</button>
+    <p id="result"></p>
+    <h3>Favorite Cities</h3>
+    <div id = "favorites"></div>
+
+    <script>
+        window.onload=function(){
+            LoadFavorites();
+        }
+    function SearchCity()
+    {
+
+        var city = document.getElementById("cityInput").value;
+        if(city == "")
+        {
+            alert("Please enter a city name");
+            return;
+        }
+        fetch('/Index?handler=Weather&city=' + city)
+        .then(response => response.text())
+        .then(data => {
+            try {
+                var weather = JSON.parse(data);
+                console.log(weather);  // Log to see structure
+
+                if(weather.main && weather.weather)
+                {
+                    var temp = weather.main.temp;
+                    var description = weather.weather[0].description;
+                    var humidity = weather.main.humidity;
+
+                    document.getElementById("result").innerHTML = `
+                        <h2>${weather.name}</h2>
+                        <p>Temperature: ${temp}°C</p>
+                        <p>Weather: ${description}</p>
+                        <p>Humidity: ${humidity}%</p>
+                    `;
+                }
+                else
+                {
+                    document.getElementById("result").innerHTML = "Invalid data format";
+                }
+            }
+            catch(e) {
+                document.getElementById("result").innerHTML = "Error parsing data: " + e.message;
+            }
+        })
+        .catch(error => {
+            document.getElementById("result").innerHTML = "Error: " + error;
+        });
+    }
+    function SaveFavorites()
+    {
+        var city = document.getElementById("cityInput").value;
+        if(city=="")
+        {
+            alert("Search for a city first");
+            return;
+        }
+        fetch('/Index?handler=SaveFavorite&cityName='+city+'&country=Unknown')
+        .then(response => response.json())
+        .then(data=>{
+
+            if(data.success){
+                alert(data.message);
+                LoadFavorites();
+            }
+
+            else{
+             alert(data.message)
+            }
+
+        })
+        .catch(error => alert("Error " + error));
+
+
+    }
+
+
+
+    function LoadFavorites()
+    {
+        fetch('/Index?handler=GetFavorites')
+        .then(response => response.json())
+        .then(data => {
+            var html ="";
+            if(data.length>0){
+                data.forEach(city => {
+                    html += `<p>${city.cityName}<button onclick = "DeleteFavorite(${city.id})">Delete</button></p>`;
+                })
+            }
+            else
+            {
+                html = "<p>No favorites yet</p>";
+            }
+            document.getElementById("favorites").innerHTML = html;
+        })
+        .catch(error => console.log("Error : "+error));
+
+    }
+    function DeleteFavorite(id)
+    {
+        if(confirm("Delete this city??"))
+        {
+            fetch('/Index?handler=DeleteFavorite&id='+id)
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message)
+                LoadFavorites();
+            })
+            .catch(error => alert("Error : "+error));
+        }
+    }
+</script>
+</div>
