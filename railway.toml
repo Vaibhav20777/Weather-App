@@ -1,0 +1,7 @@
+[build]
+builder = "nixpacks"
+
+[deploy]
+startCommand = "dotnet Weather_App.dll"
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
